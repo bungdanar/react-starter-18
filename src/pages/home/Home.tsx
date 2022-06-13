@@ -16,6 +16,9 @@ export default function Home() {
               <li>
                 <Link to={'/products'}>Products</Link>
               </li>
+              <li>
+                <Link to={'/mui'}>MUI</Link>
+              </li>
             </ul>
           </div>
           <div>
