@@ -1,13 +1,9 @@
-import CustomCard from './components/custom-card/CustomCard'
+import { AppRoutes } from './routes'
 
 function App() {
   return (
     <div className='container-fluid'>
-      <div className='row justify-content-center'>
-        <div className='col-sm-6'>
-          <CustomCard>Initial App</CustomCard>
-        </div>
-      </div>
+      <AppRoutes />
     </div>
   )
 }
