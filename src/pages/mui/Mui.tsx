@@ -1,10 +1,13 @@
 import { Button } from '@mui/material'
+import { Moment } from 'moment'
 import { useState } from 'react'
 import CustomCard from '../../components/custom-card/CustomCard'
 import CustomDialog from '../../components/custom-dialog/CustomDialog'
+import DateInput from '../../components/date-input/DateInput'
 
 export default function Mui() {
   const [open, setOpen] = useState(false)
+  const [date, setDate] = useState<Moment | null>(null)
 
   const handleOpenDialog = () => {
     setOpen(true)
@@ -23,6 +26,14 @@ export default function Mui() {
               <Button variant='contained' onClick={handleOpenDialog}>
                 Open dialog
               </Button>
+            </div>
+            <br />
+            <div>
+              <DateInput
+                label='Date'
+                value={date}
+                onChange={(newDate) => setDate(newDate)}
+              />
             </div>
           </CustomCard>
         </div>

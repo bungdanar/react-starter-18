@@ -10,10 +10,14 @@ import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
+import moment from 'moment'
+import 'moment/locale/id'
 
 configure({
   enforceActions: 'observed',
 })
+
+moment.locale('id')
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
