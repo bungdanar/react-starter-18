@@ -1,0 +1,14 @@
+.tablePagination {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6c757d;
+  padding: 0.5rem;
+}
+
+.tablePagination .goToPageInput {
+  font-size: 13px;
+}
+
+.tablePagination :global(.form-control:focus) {
+  box-shadow: none;
+}
