@@ -22,6 +22,9 @@ export default function Home() {
               <li>
                 <Link to={'/client-table'}>Client Side Table</Link>
               </li>
+              <li>
+                <Link to={'/server-table'}>Server Side Table</Link>
+              </li>
             </ul>
           </div>
           <div>

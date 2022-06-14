@@ -11,6 +11,9 @@ const Mui = lazy(() => import('./pages/mui/Mui'))
 const ClientSideTablePage = lazy(
   () => import('./pages/table/ClientSideTablePage')
 )
+const ServerSideTablePage = lazy(
+  () => import('./pages/table/ServerSideTablePage')
+)
 
 const AppRoutes = () => {
   return (
@@ -22,6 +25,7 @@ const AppRoutes = () => {
         <Route path='/products/:productId' element={<ProductDetail />} />
         <Route path='/mui' element={<Mui />} />
         <Route path='/client-table' element={<ClientSideTablePage />} />
+        <Route path='/server-table' element={<ServerSideTablePage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </Suspense>

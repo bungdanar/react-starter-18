@@ -45,6 +45,7 @@ export default function TablePagination({
                 gotoPage(page)
               }}
               className={['form-control', styles.goToPageInput].join(' ')}
+              disabled={isLoading}
             />
           </div>
         </div>
