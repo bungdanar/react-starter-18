@@ -19,6 +19,9 @@ export default function Home() {
               <li>
                 <Link to={'/mui'}>MUI</Link>
               </li>
+              <li>
+                <Link to={'/client-table'}>Client Side Table</Link>
+              </li>
             </ul>
           </div>
           <div>
