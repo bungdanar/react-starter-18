@@ -1,0 +1,15 @@
+.textInput :global(.form-control:focus) {
+  box-shadow: none;
+}
+
+.textInput small {
+  color: #ff4136;
+}
+
+.textInputNotValid :global(.form-control) {
+  border: 1px solid #ff4136;
+}
+
+.textInputNotValid :global(.form-control:focus) {
+  border-color: #ff4136;
+}
