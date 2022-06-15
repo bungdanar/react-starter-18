@@ -14,6 +14,7 @@ const ClientSideTablePage = lazy(
 const ServerSideTablePage = lazy(
   () => import('./pages/table/ServerSideTablePage')
 )
+const FormPage = lazy(() => import('./pages/form/Form'))
 
 const AppRoutes = () => {
   return (
@@ -26,6 +27,7 @@ const AppRoutes = () => {
         <Route path='/mui' element={<Mui />} />
         <Route path='/client-table' element={<ClientSideTablePage />} />
         <Route path='/server-table' element={<ServerSideTablePage />} />
+        <Route path='/form' element={<FormPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </Suspense>

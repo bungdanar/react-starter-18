@@ -25,6 +25,9 @@ export default function Home() {
               <li>
                 <Link to={'/server-table'}>Server Side Table</Link>
               </li>
+              <li>
+                <Link to={'/form'}>Form</Link>
+              </li>
             </ul>
           </div>
           <div>
