@@ -42,6 +42,9 @@ export class FileUtility {
         isValid = false
         errMsg = 'File terlalu besar'
       }
+    } else {
+      isValid = false
+      errMsg = 'File is required'
     }
 
     return {

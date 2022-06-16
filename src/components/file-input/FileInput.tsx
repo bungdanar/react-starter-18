@@ -3,6 +3,7 @@ import { IconButton, Tooltip } from '@mui/material'
 import { forwardRef } from 'react'
 
 interface FileInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label: string
   isValid?: boolean
   isTouched?: boolean
   errMessage?: string
@@ -13,6 +14,7 @@ interface FileInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
   (
     {
+      label,
       isValid = true,
       isTouched = false,
       errMessage = 'Field is required',
@@ -26,7 +28,8 @@ const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
     const inputDivStyle = showResetBtn ? 'col-sm-11' : 'col-sm-12'
 
     return (
-      <>
+      <div className='mb-3'>
+        <label className='form-label'>{label}</label>
         <div className='row'>
           <div className={inputDivStyle}>
             <input
@@ -49,7 +52,7 @@ const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
         {showErrMessage ? (
           <small style={{ color: '#ff4136' }}>{errMessage}</small>
         ) : null}
-      </>
+      </div>
     )
   }
 )

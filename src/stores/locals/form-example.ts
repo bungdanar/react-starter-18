@@ -131,11 +131,16 @@ export class FormExampleStore {
     this.setFormState(updatedFormState)
   }
 
-  handleResetFileForm = () => {
+  handleResetFileFormInput = () => {
     const updatedFormState = this.plainFormState
     updatedFormState.file.value = undefined
-    updatedFormState.file.isValid = true
-    updatedFormState.file.identifier = null
+
+    const { isValid, errMsg, identifier } =
+      FileUtility.checkFileInputValidity(undefined)
+
+    updatedFormState.file.isValid = isValid
+    updatedFormState.file.errMessage = errMsg
+    updatedFormState.file.identifier = identifier
 
     this.setFormState(updatedFormState)
   }
