@@ -1,0 +1,8 @@
+.customNavbar .logout {
+  cursor: pointer;
+}
+
+.customNavbar .burger {
+  margin-right: 10px;
+  cursor: pointer;
+}
