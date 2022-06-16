@@ -1,8 +1,12 @@
-// /** @jsxImportSource @emotion/react */
+/** @jsxImportSource @emotion/react */
 import { observer } from 'mobx-react-lite'
 import { useStore } from '../../../hooks/use-store'
 import styles from './SidebarBase.module.css'
 import { css } from '@emotion/react'
+import { Fragment, useMemo } from 'react'
+import { Home } from '@mui/icons-material'
+import { NavLink } from 'react-router-dom'
+import { Tooltip } from '@mui/material'
 
 type SidebarBaseSize = 'maximum' | 'minimum' | 'floating'
 
@@ -10,12 +14,37 @@ interface SidebarBaseProps {
   size: SidebarBaseSize
 }
 
+interface MenuStructure {
+  id: string
+  label: string
+  icon: JSX.Element
+  path: string
+}
+
 const SidebarBase = observer(({ size }: SidebarBaseProps) => {
   const {
     themePrimaryColor,
     themeSidebarFontSize,
-    // handleCloseFloatingSidebar,
+    handleCloseFloatingSidebar,
   } = useStore().uiStore
+
+  const menuStructure: MenuStructure[] = useMemo(
+    () => [
+      {
+        id: '/',
+        label: 'Home',
+        icon: <Home sx={{ fontSize: 16 }} />,
+        path: '/',
+      },
+      {
+        id: '/welcome',
+        label: 'Welcome',
+        icon: <Home sx={{ fontSize: 16 }} />,
+        path: '/welcome',
+      },
+    ],
+    []
+  )
 
   const rootStyles = [styles.sidebarBase]
   const menuContainerStyles = ['d-flex']
@@ -69,6 +98,41 @@ const SidebarBase = observer(({ size }: SidebarBaseProps) => {
 
           return null
         })()}
+
+        {menuStructure.map((m) => (
+          <Fragment key={m.id}>
+            <li>
+              <NavLink
+                to={m.path}
+                onClick={() => {
+                  if (size === 'floating') {
+                    handleCloseFloatingSidebar()
+                  }
+                }}
+              >
+                <div className={menuContainerStyles.join(' ')}>
+                  {(function () {
+                    if (size === 'maximum' || size === 'floating') {
+                      return (
+                        <>
+                          <div>{m.icon}</div>
+                          <div>{m.label}</div>
+                        </>
+                      )
+                    } else {
+                      return (
+                        <Tooltip title={m.label} placement='right'>
+                          {m.icon}
+                        </Tooltip>
+                      )
+                    }
+                  })()}
+                </div>
+              </NavLink>
+            </li>
+            <hr />
+          </Fragment>
+        ))}
       </ul>
     </div>
   )

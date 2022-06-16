@@ -7,6 +7,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* body .btn:focus {
+  box-shadow: none !important;
+}
+
+body .btn:disabled {
+  cursor: not-allowed;
+  pointer-events: auto;
+}
+
+body a,
+body a:hover {
+  text-decoration: none;
+  color: inherit;
+} */
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
