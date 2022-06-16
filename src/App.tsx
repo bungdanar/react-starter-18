@@ -7,6 +7,8 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 import Navbar from './components/navbar/Navbar'
 import MainContent from './components/main-content/MainContent'
 import { useEffect } from 'react'
+import FloatingSidebar from './components/sidebar/floating-sidebar/FloatingSidebar'
+import Sidebar from './components/sidebar/Sidebar'
 
 const App = observer(() => {
   const { themePrimaryColor, handleScreenResizeListener } = useStore().uiStore
@@ -30,10 +32,12 @@ const App = observer(() => {
   return (
     <ThemeProvider theme={theme}>
       <LocalizationProvider dateAdapter={AdapterMoment}>
+        <FloatingSidebar />
         <header>
           <Navbar />
         </header>
         <main>
+          <Sidebar />
           <MainContent>
             <AppRoutes />
           </MainContent>

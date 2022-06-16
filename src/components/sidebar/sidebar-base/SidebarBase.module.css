@@ -1,0 +1,73 @@
+.sidebarBase {
+  z-index: 9;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+  background: #2c3e50;
+  bottom: 0;
+}
+
+.sidebarBase a,
+.sidebarBase a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.sidebarBase ul {
+  padding: 0;
+  list-style: none;
+  margin-top: 4rem;
+}
+
+.sidebarBase ul li {
+  color: #a7b1c2;
+}
+
+.sideBarMaximum {
+  width: 250px;
+}
+
+.sideBarMaximum li {
+  text-indent: 20px;
+}
+
+.sidebarMinimum {
+  width: 55px;
+}
+
+.sidebarMinimum li {
+  text-indent: 0px;
+}
+
+.sidebarFloating {
+  width: 250px;
+  z-index: 1031;
+}
+
+.sidebarFloating li {
+  text-indent: 20px;
+}
+
+.sidebarFloating ul {
+  margin-top: 0.5rem;
+}
+
+.floatingAppBar {
+  padding: 1rem;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.userInfo {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #a7b1c2;
+  font-size: 13px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.userInfo div:nth-child(4) {
+  margin-bottom: 5px;
+}
