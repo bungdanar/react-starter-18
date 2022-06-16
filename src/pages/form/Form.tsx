@@ -5,6 +5,7 @@ import CustomCard from '../../components/custom-card/CustomCard'
 import CustomDivider from '../../components/custom-divider/CustomDivider'
 import DateInput from '../../components/date-input/DateInput'
 import FileInput from '../../components/file-input/FileInput'
+import RadioInput from '../../components/radio-input/RadioInput'
 import SelectInput from '../../components/select-input/SelectInput'
 import TextInput from '../../components/text-input/TextInput'
 import TextareaInput from '../../components/textarea-input/TextareaInput'
@@ -95,6 +96,16 @@ const FormPage = observer(() => {
                 onChange={(e) => handleChangeFormInput('time', e)}
                 isValid={formState.time.isValid}
                 isTouched={isFormTouched}
+              />
+              <CustomDivider />
+              <RadioInput
+                label='Radio'
+                value={formState.radio.value}
+                onChange={(e) => handleChangeFormInput('radio', e.target.value)}
+                options={['React', 'Vue', 'Angular'].map((o) => ({
+                  label: o,
+                  value: o,
+                }))}
               />
               <CustomDivider />
               <FileInput

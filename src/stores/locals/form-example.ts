@@ -12,6 +12,7 @@ interface FormExampleState {
   select: FormInputStruct<null | { label: any; value: any }>
   date: FormInputStruct<null | Moment>
   time: FormInputStruct<null | Moment>
+  radio: FormInputStruct<string>
   file: FileInputStruct<undefined | null | File>
 }
 
@@ -36,6 +37,10 @@ function initialFormExampleState(): FormExampleState {
     time: {
       value: null,
       isValid: false,
+    },
+    radio: {
+      value: 'React',
+      isValid: true,
     },
     file: {
       value: undefined,
@@ -95,7 +100,8 @@ export class FormExampleStore {
 
     switch (formKey) {
       case 'text':
-      case 'textArea': {
+      case 'textArea':
+      case 'radio': {
         updatedFormState[formKey].isValid =
           updatedFormState[formKey].value.trim() !== ''
 
