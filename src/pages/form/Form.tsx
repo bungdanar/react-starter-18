@@ -8,6 +8,7 @@ import FileInput from '../../components/file-input/FileInput'
 import SelectInput from '../../components/select-input/SelectInput'
 import TextInput from '../../components/text-input/TextInput'
 import TextareaInput from '../../components/textarea-input/TextareaInput'
+import TimeInput from '../../components/time-input/TimeInput'
 import { FormExampleStore } from '../../stores/locals/form-example'
 
 const FormPage = observer(() => {
@@ -85,6 +86,14 @@ const FormPage = observer(() => {
                 value={formState.date.value}
                 onChange={(e) => handleChangeFormInput('date', e)}
                 isValid={formState.date.isValid}
+                isTouched={isFormTouched}
+              />
+              <CustomDivider />
+              <TimeInput
+                label='Time'
+                value={formState.time.value}
+                onChange={(e) => handleChangeFormInput('time', e)}
+                isValid={formState.time.isValid}
                 isTouched={isFormTouched}
               />
               <CustomDivider />

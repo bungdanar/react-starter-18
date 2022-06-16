@@ -11,6 +11,7 @@ interface FormExampleState {
   textArea: FormInputStruct<string>
   select: FormInputStruct<null | { label: any; value: any }>
   date: FormInputStruct<null | Moment>
+  time: FormInputStruct<null | Moment>
   file: FileInputStruct<undefined | null | File>
 }
 
@@ -29,6 +30,10 @@ function initialFormExampleState(): FormExampleState {
       isValid: false,
     },
     date: {
+      value: null,
+      isValid: false,
+    },
+    time: {
       value: null,
       isValid: false,
     },
@@ -98,7 +103,8 @@ export class FormExampleStore {
       }
 
       case 'select':
-      case 'date': {
+      case 'date':
+      case 'time': {
         updatedFormState[formKey].isValid =
           updatedFormState[formKey].value !== null
 

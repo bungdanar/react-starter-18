@@ -1,0 +1,15 @@
+.timeInput :global(.form-control:focus) {
+  box-shadow: none;
+}
+
+.timeInput small {
+  color: #ff4136;
+}
+
+.timeInputNotValid :global(.form-control) {
+  border: 1px solid #ff4136;
+}
+
+.timeInputNotValid :global(.form-control:focus) {
+  border-color: #ff4136;
+}
