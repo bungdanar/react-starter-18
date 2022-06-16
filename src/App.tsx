@@ -6,9 +6,10 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 import Navbar from './components/navbar/Navbar'
 import MainContent from './components/main-content/MainContent'
+import { useEffect } from 'react'
 
 const App = observer(() => {
-  const { themePrimaryColor } = useStore().uiStore
+  const { themePrimaryColor, handleScreenResizeListener } = useStore().uiStore
 
   const theme = createTheme({
     palette: {
@@ -17,6 +18,14 @@ const App = observer(() => {
       },
     },
   })
+
+  useEffect(() => {
+    handleScreenResizeListener()
+    window.addEventListener('resize', handleScreenResizeListener)
+
+    return () =>
+      window.removeEventListener('resize', handleScreenResizeListener)
+  }, [handleScreenResizeListener])
 
   return (
     <ThemeProvider theme={theme}>
