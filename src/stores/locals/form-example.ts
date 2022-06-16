@@ -14,6 +14,9 @@ interface FormExampleState {
   time: FormInputStruct<null | Moment>
   radio: FormInputStruct<string>
   file: FileInputStruct<undefined | null | File>
+  tag1: FormInputStruct<boolean>
+  tag2: FormInputStruct<boolean>
+  tag3: FormInputStruct<boolean>
 }
 
 function initialFormExampleState(): FormExampleState {
@@ -46,6 +49,18 @@ function initialFormExampleState(): FormExampleState {
       value: undefined,
       isValid: false,
       identifier: null,
+    },
+    tag1: {
+      value: false,
+      isValid: true,
+    },
+    tag2: {
+      value: false,
+      isValid: true,
+    },
+    tag3: {
+      value: false,
+      isValid: true,
     },
   }
 }

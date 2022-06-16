@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import { useRef, useState } from 'react'
+import CheckboxInput from '../../components/checkbox-input/CheckboxInput'
 import CustomButton from '../../components/custom-button/CustomButton'
 import CustomCard from '../../components/custom-card/CustomCard'
 import CustomDivider from '../../components/custom-divider/CustomDivider'
@@ -119,6 +120,33 @@ const FormPage = observer(() => {
                 ref={fileInputRef}
                 handleReset={handleResetFile}
               />
+              <CustomDivider />
+              <div className='mb-3'>
+                <label className='form-label'>Tag</label>
+                <div>
+                  <CheckboxInput
+                    label='Tag 1'
+                    checked={formState.tag1.value}
+                    onChange={(e) =>
+                      handleChangeFormInput('tag1', e.target.checked)
+                    }
+                  />
+                  <CheckboxInput
+                    label='Tag 2'
+                    checked={formState.tag2.value}
+                    onChange={(e) =>
+                      handleChangeFormInput('tag2', e.target.checked)
+                    }
+                  />
+                  <CheckboxInput
+                    label='Tag 3'
+                    checked={formState.tag3.value}
+                    onChange={(e) =>
+                      handleChangeFormInput('tag3', e.target.checked)
+                    }
+                  />
+                </div>
+              </div>
               <CustomDivider />
               <div className='d-grid gap-1'>
                 <CustomButton type='submit'>Submit</CustomButton>
