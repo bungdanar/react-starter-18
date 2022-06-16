@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import CustomButton from '../../components/custom-button/CustomButton'
 import CustomCard from '../../components/custom-card/CustomCard'
 
 export default function Home() {
@@ -29,9 +28,6 @@ export default function Home() {
                 <Link to={'/form'}>Form</Link>
               </li>
             </ul>
-          </div>
-          <div>
-            <CustomButton>Theme Btn</CustomButton>
           </div>
         </CustomCard>
       </div>
