@@ -7,3 +7,5 @@ export class RootStore {
     this.uiStore = new UiStore(this)
   }
 }
+
+export default new RootStore()
