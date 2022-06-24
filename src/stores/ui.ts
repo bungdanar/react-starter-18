@@ -14,6 +14,9 @@ export class UiStore {
       themeAccentColor: observable,
       themeSidebarFontSize: observable,
 
+      isAppLoaded: observable,
+      setAppLoaded: action,
+
       currentSize: observable,
       setCurrentSize: action,
 
@@ -30,6 +33,11 @@ export class UiStore {
   themePrimaryColor = '#16a085'
   themeAccentColor = '#21b9bb'
   themeSidebarFontSize = '13px'
+
+  isAppLoaded: boolean = false
+  setAppLoaded = (value: boolean) => {
+    this.isAppLoaded = value
+  }
 
   currentSize: ScreenSize = 'large'
   setCurrentSize = (value: ScreenSize) => {
