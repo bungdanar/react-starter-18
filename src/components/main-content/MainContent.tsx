@@ -4,24 +4,22 @@ import { useStore } from '../../hooks/use-store'
 import styles from './MainContent.module.css'
 
 const MainContent = observer((props: PropsWithChildren<object>) => {
-  const { currentSize, sidebarOpen } = useStore().uiStore
+  const { uiStore, userStore } = useStore()
 
   const containerStyles = [styles.container]
 
-  //   if (currentUser) {
-
-  //   }
-
-  if (currentSize === 'large') {
-    if (sidebarOpen) {
-      containerStyles.push(styles.containerLarge)
-    } else {
+  if (userStore.currentUser) {
+    if (uiStore.currentSize === 'large') {
+      if (uiStore.sidebarOpen) {
+        containerStyles.push(styles.containerLarge)
+      } else {
+        containerStyles.push(styles.containerMedium)
+      }
+    } else if (uiStore.currentSize === 'medium') {
       containerStyles.push(styles.containerMedium)
+    } else {
+      containerStyles.push(styles.containerMobile)
     }
-  } else if (currentSize === 'medium') {
-    containerStyles.push(styles.containerMedium)
-  } else {
-    containerStyles.push(styles.containerMobile)
   }
 
   return (

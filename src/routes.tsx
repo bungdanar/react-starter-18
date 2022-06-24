@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import Fallback from './components/fallback/Fallback'
 import NotFound from './components/not-found/NotFound'
 
@@ -15,6 +15,18 @@ const ServerSideTablePage = lazy(
   () => import('./pages/table/ServerSideTablePage')
 )
 const FormPage = lazy(() => import('./pages/form/Form'))
+const LoginPage = lazy(() => import('./pages/login/Login'))
+
+const LoginRoutes = () => {
+  return (
+    <Suspense fallback={<Fallback />}>
+      <Routes>
+        <Route path='/' element={<LoginPage />} />
+        <Route path='*' element={<Navigate to='/' />} />
+      </Routes>
+    </Suspense>
+  )
+}
 
 const AppRoutes = () => {
   return (
@@ -34,4 +46,4 @@ const AppRoutes = () => {
   )
 }
 
-export { AppRoutes }
+export { LoginRoutes, AppRoutes }
