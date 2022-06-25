@@ -4,9 +4,10 @@ import { useStore } from '../../../hooks/use-store'
 import styles from './SidebarBase.module.css'
 import { css } from '@emotion/react'
 import { Fragment, useMemo } from 'react'
-import { Home } from '@mui/icons-material'
+import { AccessAlarm, Home } from '@mui/icons-material'
 import { NavLink } from 'react-router-dom'
 import { Tooltip } from '@mui/material'
+import SessionCountdown from '../../session-countdown/SessionCountdown'
 
 type SidebarBaseSize = 'maximum' | 'minimum' | 'floating'
 
@@ -93,7 +94,14 @@ const SidebarBase = observer(({ size }: SidebarBaseProps) => {
       <ul>
         {(function () {
           if (size === 'maximum' || size === 'floating') {
-            return null
+            return (
+              <>
+                <div className={styles.userInfo}>
+                  <AccessAlarm sx={{ fontSize: 16 }} />: <SessionCountdown />
+                </div>
+                <hr />
+              </>
+            )
           }
 
           return null
