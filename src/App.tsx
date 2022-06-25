@@ -31,6 +31,13 @@ const App = observer(() => {
   }, [uiStore])
 
   useEffect(() => {
+    window.addEventListener('storage', userStore.handleMultiTabAuth)
+
+    return () =>
+      window.removeEventListener('storage', userStore.handleMultiTabAuth)
+  }, [userStore])
+
+  useEffect(() => {
     userStore.checkCurrentUser()
   }, [userStore])
 
