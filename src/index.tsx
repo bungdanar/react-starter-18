@@ -12,6 +12,7 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import moment from 'moment'
 import 'moment/locale/id'
+import { StoreProvider } from './contexts/store'
 
 configure({
   enforceActions: 'observed',
@@ -22,9 +23,11 @@ moment.locale('id')
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <StoreProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </StoreProvider>
   </React.StrictMode>
 )
 
